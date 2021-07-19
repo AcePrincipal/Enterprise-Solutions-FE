@@ -9,6 +9,7 @@ import {
   Route
 } from 'react-router-dom';
 import NavBar from './Components/NavBar';
+import ProductsComponent from './Components/ProductsComponent'
 
 class App extends Component {
   render() {
@@ -19,10 +20,7 @@ class App extends Component {
         <Route exact path="/" render={() => <WelcomeComponent/>} />
         <Route exact path="/AboutUs" render={() => <AboutUsComponent/>} />
         <Route exact path="/ContactUs" render={() => <ContactUsComponent/>} />
-        {/* <Route path='/AboutUs' render={routerProps => <WelcomeComponent {...routerProps} movies={this.state.movies}/>} /> */}
-        {/* <WelcomeComponent/>
-        <AboutUsComponent/>
-        <ContactUsComponent/> */}
+        <Route exact path="/Products" render={() => <ProductsComponent/>} />
       </div>
       </Router>
     );
