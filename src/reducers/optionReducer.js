@@ -1,9 +1,9 @@
 function optionReducer(state = {}, action){
     switch(action.type){
         case "A":
-            return currentState = true;
+            return state = true;
         default:
-            return currentState;
+            return state;
     }
 }
 
