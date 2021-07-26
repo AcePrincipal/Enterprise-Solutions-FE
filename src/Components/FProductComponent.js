@@ -1,26 +1,34 @@
 import React, { Component } from 'react'; 
+import {connect} from 'react-redux';
+import {fetchProducts} from '../actions/fetchProducts';
+import ProductComponent from './ProductComponent';
 
-export default class FProductComponent extends Component {
-  state = { products: []}
+class FProductComponent extends Component {
 
   componentDidMount(){
-    fetch("http://localhost:3000/products")
-    .then(res => res.json())
-    .then(productData => {
-      this.setState({
-        products: productData.map(product => product.attributes)
-      })
-    })
+    this.props.fetchProducts()
+  }
+
+  renderProducts(){
+    if (!this.props.products.length){
+      return <div>Loading...</div>
+    }
+    return this.props.products.map(product => <ProductComponent product={product}/>)
   }
 
   render() {
     return (
       <div className="fproduct" id="fprod">
-        <p> {this.state.products} </p>
-        <h3> PRODUCT 2 </h3>
-        <h3> PRODUCT 3 </h3>
-        
+        {this.renderProducts()}
       </div>
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    products: state.products.products 
+  }
+}
+
+export default connect(mapStateToProps, {fetchProducts})(FProductComponent)
