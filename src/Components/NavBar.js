@@ -18,6 +18,12 @@ const NavBar = () => {
       </NavLink>
       <NavLink 
         style={{ marginRight: '10px' }} 
+        to="/Reviews"
+      >
+        Reviews  
+      </NavLink>      
+      <NavLink 
+        style={{ marginRight: '10px' }} 
         to="/AboutUs"
       >
         About Us 

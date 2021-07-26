@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom';
 import NavBar from './Components/NavBar';
 import ProductsComponent from './Components/ProductsComponent'
+import ReviewsComponent from './Components/ReviewsComponent'
 
 class App extends Component {
   render() {
@@ -20,6 +21,7 @@ class App extends Component {
         <Route exact path="/AboutUs" render={() => <AboutUsComponent/>} />
         <Route exact path="/ContactUs" render={() => <ContactUsComponent/>} />
         <Route exact path="/Products" render={() => <ProductsComponent/>} />
+        <Route exact path="/Reviews" render={() => <ReviewsComponent/>} />
       </div>
       </Router>
     );
