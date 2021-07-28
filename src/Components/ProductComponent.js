@@ -1,17 +1,36 @@
 import React, { Component } from 'react'; 
+import {changeTotal} from '../actions/changeTotal'
+import {connect} from 'react-redux';
 
-export default class ProductComponent extends Component {
+class ProductComponent extends Component {
+
+  handleButton = event => {
+    event.preventDefault()
+    changeTotal(this.props.product.total)
+    // this.super.remove()
+  }
 
   render() {
     return (
       <div className="product" id="prod">
+        <img src={this.props.product.pic} alt="Product" width="90" height="60"></img>
         <h2>{this.props.product.name}</h2>
-        <img src={this.props.product.url} alt="Product" width="500" height="600"></img>
         <h4>{this.props.product.description}</h4>
         <p>{this.props.product.option1}</p>
         <p>{this.props.product.option2}</p>
         <p>{this.props.product.option3}</p>
+        <h4>Total: ${this.props.product.total}k</h4>
+        <button onClick={this.handleButton}>Add to Cart!</button>
       </div>
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    products: state.products.products,
+    total: state.products.total
+  }
+}
+
+export default connect(mapStateToProps, {changeTotal})(ProductComponent)

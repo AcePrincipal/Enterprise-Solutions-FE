@@ -19,7 +19,8 @@ class FProductComponent extends Component {
   render() {
     return (
       <div className="fproduct" id="fprod">
-        {this.renderProducts()}
+          {this.renderProducts()}
+          <h2>Total: ${this.props.total}</h2>
       </div>
     );
   }
@@ -27,7 +28,8 @@ class FProductComponent extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    products: state.products.products 
+    products: state.products.products,
+    total: state.products.total
   }
 }
 

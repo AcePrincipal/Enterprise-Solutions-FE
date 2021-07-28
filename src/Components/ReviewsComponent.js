@@ -32,6 +32,8 @@ export default class ReviewsComponent extends Component {
         })
       }
 
+      
+
   render() {
     return (
       <div className="reviews" id="revs">
