@@ -20,7 +20,7 @@ class FProductComponent extends Component {
     return (
       <div className="fproduct" id="fprod">
           {this.renderProducts()}
-          <h2>Total: ${this.props.total}</h2>
+          <h2>Total: ${this.props.total}k</h2>
       </div>
     );
   }

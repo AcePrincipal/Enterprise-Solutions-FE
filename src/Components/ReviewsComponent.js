@@ -2,31 +2,50 @@ import React, { Component } from 'react';
 
 export default class ReviewsComponent extends Component {
     state = {
-        Title: "",
-        Content: "",
+        title: "",
+        content: "",
         submittedData: []
       }
+
+    handleSubmit(e){
+      e.preventDefault()
+      let config = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify(this.state)
+      }
+
+      fetch(`http://localhost:3000/reviews`, config)
+      .then(res => res.json())
+      .then(res => {
+        this.setState({submittedData: res})
+      })
+    }
     
       handleTitleChange = event => {
         this.setState({
-          Title: event.target.value
+          title: event.target.value
         })
       }
     
       handleContentChange = event => {
         this.setState({
-          Content: event.target.value
+          content: event.target.value
         })
       }
     
-      handleSubmit = event => {
-        event.preventDefault()
-        let formData = { Title: this.state.Title, Content: this.state.Content }
-        let dataArray = this.state.submittedData.concat(formData)
-        this.setState({submittedData: dataArray})
-      }
+      // handleSubmit = event => {
+      //   event.preventDefault()
+      //   let formData = { title: this.state.Title, content: this.state.content }
+      //   let dataArray = this.state.submittedData.concat(formData)
+      //   this.setState({submittedData: dataArray})
+      // }
     
       listOfSubmissions = () => {
+        // debugger
         return this.state.submittedData.map(data => {
           return <div><h1><span>{data.Title}</span></h1> <span>{data.Content}</span></div>
         })
@@ -45,18 +64,17 @@ export default class ReviewsComponent extends Component {
           <input
             type="text"
             onChange={event => this.handleTitleChange(event)}
-            value={this.state.Title}
+            value={this.state.title}
           />
           <label>{"Review:"}</label>
           <input
             type="text"
             onChange={event => this.handleContentChange(event)}
-            value={this.state.Content}
+            value={this.state.content}
           />
           <input type="submit"/>
         </form>
         {this.listOfSubmissions()}
-        
       </div>
     );
   }

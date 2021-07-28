@@ -6,8 +6,8 @@ class ProductComponent extends Component {
 
   handleButton = event => {
     event.preventDefault()
-    changeTotal(this.props.product.total)
-    // this.super.remove()
+    this.props.changeTotal(this.props.product.total)
+    document.getElementById(this.props.product.id).remove()
   }
 
   render() {
@@ -20,7 +20,7 @@ class ProductComponent extends Component {
         <p>{this.props.product.option2}</p>
         <p>{this.props.product.option3}</p>
         <h4>Total: ${this.props.product.total}k</h4>
-        <button onClick={this.handleButton}>Add to Cart!</button>
+        <button id={this.props.product.id} onClick={this.handleButton}>Add to Cart!</button>
       </div>
     );
   }

@@ -10,6 +10,21 @@ function productsReducer(state = initialState, action){
                 ...state, 
                 products: action.payload
             };
+        case 80:
+            return {
+                ...state, 
+                total: state.total+80
+            }
+        case 60:
+            return {
+                ...state, 
+                total: state.total+60
+            }
+        case 40:
+            return {
+                ...state, 
+                total: state.total+40
+            }
         default:
             return state;
     }
