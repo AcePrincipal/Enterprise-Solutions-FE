@@ -7,6 +7,14 @@ export default class ReviewsComponent extends Component {
         submittedData: []
       }
 
+    componentDidMount(){
+      fetch(`http://localhost:3000/reviews`)
+      .then(res => res.json())
+      .then(res => {
+        this.setState({submittedData: res})
+      })
+    }
+
     handleSubmit(e){
       e.preventDefault()
       let config = {
@@ -23,33 +31,31 @@ export default class ReviewsComponent extends Component {
       .then(res => {
         this.setState({submittedData: res})
       })
+
+      this.setState({
+        title: "",
+        content: ""
+      })
     }
     
-      handleTitleChange = event => {
-        this.setState({
-          title: event.target.value
-        })
-      }
-    
-      handleContentChange = event => {
-        this.setState({
-          content: event.target.value
-        })
-      }
-    
-      // handleSubmit = event => {
-      //   event.preventDefault()
-      //   let formData = { title: this.state.Title, content: this.state.content }
-      //   let dataArray = this.state.submittedData.concat(formData)
-      //   this.setState({submittedData: dataArray})
-      // }
-    
-      listOfSubmissions = () => {
-        // debugger
-        return this.state.submittedData.map(data => {
-          return <div><h1><span>{data.Title}</span></h1> <span>{data.Content}</span></div>
-        })
-      }
+    handleTitleChange = event => {
+      this.setState({
+        title: event.target.value
+      })
+    }
+  
+    handleContentChange = event => {
+      this.setState({
+        content: event.target.value
+      })
+    }
+  
+    listOfSubmissions = () => {
+      // debugger
+      return this.state.submittedData.map(data => {
+        return <div><h2><span>{data.title}</span></h2> <span>{data.content}</span></div>
+      })
+    }
 
       
 

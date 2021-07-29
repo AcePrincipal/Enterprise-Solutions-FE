@@ -16,11 +16,21 @@ class FProductComponent extends Component {
     return this.props.products.map(product => <ProductComponent product={product}/>)
   }
 
+  renderTotal(){
+    if(this.props.total !== 0){ 
+    return <>
+      <h2>Total: *${this.props.total}k</h2>
+      <p>*Contact us to get a more accurate quote based on your company.</p>
+      </>
+  }
+
+  }
+
   render() {
     return (
       <div className="fproduct" id="fprod">
           {this.renderProducts()}
-          <h2>Total: ${this.props.total}k</h2>
+          {this.renderTotal()}
       </div>
     );
   }
