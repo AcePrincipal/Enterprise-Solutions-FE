@@ -12,15 +12,24 @@ class ProductComponent extends Component {
 
   render() {
     return (
-      <div className="product" id="prod">
-        <img src={this.props.product.pic} alt="Product" width="90" height="60"></img>
-        <h2>{this.props.product.name}</h2>
-        <h4>{this.props.product.description}</h4>
-        <p>{this.props.product.option1}</p>
-        <p>{this.props.product.option2}</p>
-        <p>{this.props.product.option3}</p>
-        <h4>Total: ${this.props.product.total}k</h4>
-        <button id={this.props.product.id} onClick={this.handleButton}>Add to Cart!</button>
+      <div className="product card mb-3" id="prod">
+        <div class="row g-0">
+          <div class="col-md-4 image">
+            <img class="img-fluid rounded-start" src={this.props.product.pic} alt="Product" ></img>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{this.props.product.name}</h5>
+              <p class="card-text">{this.props.product.description}</p>
+              <p class="card-text"><small class="text-muted">{this.props.product.option1}</small></p>
+              <p class="card-text"><small class="text-muted">{this.props.product.option2}</small></p>
+              <p class="card-text"><small class="text-muted">{this.props.product.option3}</small></p>
+              <h4>Total: ${this.props.product.total}k</h4>
+              <button id={this.props.product.id} className="btn btn-dark" onClick={this.handleButton}>Add to Cart!</button>
+            </div>
+          </div>
+          
+        </div>
       </div>
     );
   }

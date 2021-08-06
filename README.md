@@ -1,3 +1,14 @@
+Welcome to Enterprise Solutions!
+
+This is a single-page web application utilizing components, routes, axios, redux, and thunk! It is programmed with Javascript, with some HTML and CSS, as well as some bootstrap. There is a second part of this application that is a Ruby on Rails backend that can be found here: `https://github.com/AcePrincipal/ESBackEnd`
+
+Strating the app with `PORT=3001 npm start` and `rails s` with the back-end part of the app, the page will open functionally on your browser of choice, which I suggest to be `Google Chrome`. 
+
+The first thing noticed will be a `welcome page` that welcomes users, and gives them some insight on the application. At the top of the website, there is a navigation bar with links to specific parts of the application. Going from left-to-right, the second link brings a user to the products page, which hosts 3 products, with prices, and buttons available to click to `Add to cart`. Clicking on a button will create an estamated total on the bottom of the page with an asterisk next to it, and an explination saying that contacting us will produce a more accurate financial quote, and finalize a deal. The next link brings the user to a reviews page, where annonymous reviews are hosted and can be posted, with a title and a review. Next is the `about us` page, that gives more information about ES. Finally, the last link on the navigation bar is `contact us`, wich has the company's information, and how to contact them.
+
+Thank you!
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

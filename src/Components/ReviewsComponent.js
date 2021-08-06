@@ -53,7 +53,7 @@ export default class ReviewsComponent extends Component {
     listOfSubmissions = () => {
       // debugger
       return this.state.submittedData.map(data => {
-        return <div><h2><span>{data.title}</span></h2> <span>{data.content}</span></div>
+        return <div><h3><span>{data.title}</span></h3> <span>{data.content}</span></div>
       })
     }
 
@@ -63,7 +63,7 @@ export default class ReviewsComponent extends Component {
     return (
       <div className="reviews" id="revs">
 
-        <h1> Enterprise Solutions Reviews</h1>
+        <h1> Enterprise Solutions Reviews!</h1>
 
         <form onSubmit={event => this.handleSubmit(event)}>
         <label>{"Title:"}</label>
